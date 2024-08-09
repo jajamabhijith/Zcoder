@@ -8,7 +8,6 @@ import Nav from './components/Nav/Nav'
 import Signup from './pages/SignupPage/Signup'
 import Footer from './components/Footer/Footer'
 import Toggle from './components/Toggle/Toggle'
-// import RequireAuth from './components/RequireAuth'
 import Contests from './pages/ContestPage/Contests'
 import Questions from './pages/PracticePage/Questions'
 import ProblemStatement from './pages/PracticePage/ProblemStatement'
@@ -42,7 +41,6 @@ const App = () => {
         <Route path='/practice/:titleSlug' element={<ProblemStatement/>}/>
         <Route path='/bookmarks' element={<Bookmarks/>}/>
         <Route path='/bookmarks/:titleSlug' element={<BookmarkedSolutions/>}/>
-        {/* <RequireAuth path='/bookmarks/:titleSlug' element={Bookmarks} isAuthenticated={isAuthenticated}/> */}
         <Route path='/submissions' element={<Submissions/>}/>
         <Route path='/submissions/:titleSlug' element={<SubmittedSolutions/>}/>
         <Route path='/login' element={<Login/>}/> 

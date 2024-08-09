@@ -15,15 +15,14 @@ export const useSignup = () => {
       });
 
       const text = await response.text();
-      const result = text ? JSON.parse(text) : {};
-      // console.log(response);
-      // console.log(text);
+      const result = text ? JSON.parse(text) : {};//gets an object having user data
+      console.log(response);
+      console.log(text);
         console.log(result);
       // console.log(response.ok);
       if (result.status!=="Failed") {
-        localStorage.setItem("user", JSON.stringify(result));
+        localStorage.setItem("user", JSON.stringify(result)); //store the user data in local storage so that it detects user login even after closing the window
         dispatch({ type: 'signup', payload: result });
-        // window.location.reload();
         return true;
       } else {
         alert(result.message);

@@ -14,37 +14,19 @@ export const useLogin = () => {
       headers: {'Content-Type': 'application/json'},
       body:JSON.stringify(user)
     })
-    const text = await response.text();
-    const userResponse = text ? JSON.parse(text) : {};
+    const text = await response.text(); //gets plain text
+    const userResponse = text ? JSON.parse(text) : {}; //if text is not empty it changes to object
 
     if(userResponse.status!="Failed"){
       //save user to local storage
       localStorage.setItem("user",JSON.stringify(userResponse))
       console.log(userResponse)
       //update auth context
-      // const data = localStorage.getItem("user")
-      // dispatch({type:'login',payload:JSON.parse(data)})
       dispatch({type:'login',payload:userResponse})
-      // window.location.reload();
-      navigate("/",{replace:true});
+      navigate("/",{replace:true}); // replace: true make sures that we will not go back to login page after we logged in
     }else{
       alert(`${userResponse.message}`)
-      // localStorage.setItem("error",JSON.stringify(data.message))
     }
-    
-    // if(response.ok){
-    //   //save user to local storage
-    //   localStorage.setItem("user",JSON.stringify(data))
-
-    //   //update auth context
-    //   dispatch({type:'login',payload:data})
-
-    //   window.location.reload();
-    //   setError(data.error)
-    // }else{
-    //   alert(`${data.message}`)
-    // }
-    //dispatch({type:'login',payload:user})
   }
   return { login,error}
 

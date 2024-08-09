@@ -11,7 +11,8 @@ const Toggle = ({handleChange,isChecked}) => {
         onChange={handleChange}
         checked={isChecked}
       />
-      <label htmlFor='check'>
+      {/* links the lable with input */}
+      <label htmlFor='check'> 
         {isChecked ? <p className='light'>Light mode</p> : <p className='dark'>Dark mode</p>}
       </label>
     </div>
